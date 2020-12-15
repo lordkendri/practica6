@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>GeneradorQR</title>
+        <link rel="stylesheet" href="Qr.css">
+    </head>
+    <body>
+    </body>
+    <div class="container">
+        <form>
+            <label>Nombre</label>
+            <br>
+            <input type="text" id="nombre">
+            <br>
+            <label>Apellido</label>
+            <br>
+            <input type="text" id="apellido">
+            <br>
+            <label>Empresa</label>
+            <br>
+            <input type="text" id="empresa">
+            <br>
+            <label>Cargo</label>
+            <br>
+            <input type="text" id="cargo">
+            <br>
+            <label>Telefono Movil</label>
+            <br>
+            <input type="text" id="Telefono movil">
+            <br>
+            <label>Correo Personal</label>
+            <br>
+            <input type="email" id="correo personal">
+            <br>
+            <label>Correo empresarial</label>
+            <br>
+            <input type="email" id="correo empresarial" onchange="generateQR()">
+        </form>
+    </div>
+    
+    <div class="container" id="qrcode"></div>
+    <script src="qrcode.min.js"></script>
+    <script>
+        var qrdata = document.getElementById('nombre');
+        var apellid =document.getElementById('apellido')
+        var empresa = document.getElementById('nombre');
+        var cargo =document.getElementById('apellido')
+        var tel = document.getElementById('nombre');
+        var correop =document.getElementById('apellido')
+        var correoe = document.getElementById('nombre');
+        
+        var qrcode = new QRCode(document.getElementById('qrcode'))
+        function generateQR(){
+
+            var data = qrdata.value + apellid.value + empresa.value +cargo.value
+            + tel.value + correop.value + correoe.value;
+             qrcode.makeCode(data);
+             
+        }
+
+    </script>
+</html>
